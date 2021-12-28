@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">
-        <div class="col-8">
+        <div class="col">
            <div class="input-group d-flex">
                <input type="text" type="email" placeholder="exemple@gmail.com" class="form-control">
-              <button class="btn btn-success"> add</button>
+               <button class="btn btn-success">add</button>
 
            </div>
         </div>

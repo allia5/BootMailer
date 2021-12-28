@@ -13,7 +13,10 @@
   </head>
   <body>
     @include('partie1.header')
+    
     @include('partie2.formuller')
+    <br>
+    <br>
     @include('partie3.search')
     @include('partie4.statistique')
     
