@@ -18,6 +18,9 @@
     <br>
     <br>
     @include('partie3.search')
+    <br>
+    <br>
+    <br>
     @include('partie4.statistique')
     
 
