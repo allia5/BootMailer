@@ -16,6 +16,7 @@
     
     @include('partie2.formuller')
     <br>
+    @include('alert.alert')
     <br>
     @include('partie3.search')
     <br>
