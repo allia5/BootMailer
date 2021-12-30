@@ -16,7 +16,7 @@ class CreateBootmailerTable extends Migration
         Schema::create('bootmailer', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string('email')->unique();
-            $table->boolean('etat');
+            $table->boolean('etat_email');
             $table->integer('nb_demmande');
             $table->timestamps();
         });
