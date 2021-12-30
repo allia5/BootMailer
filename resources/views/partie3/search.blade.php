@@ -12,6 +12,8 @@
             <thead>
               <tr>
                 <th scope="col">email</th>
+                <th scope="col">etat</th>
+                <th scope="col">nb_demmande</th>
                 <th scope="col">delete</th>
                 
                 
@@ -20,6 +22,8 @@
             <tbody>
               <tr>
                 <th scope="row">exemple@gmail.com</th>
+                <th scope="row">1</th>
+                <th scope="row">6</th>
                 <td><button class="btn btn-danger">delete</button></td>
                 
               </tr>
