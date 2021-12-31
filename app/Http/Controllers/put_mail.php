@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\bootmailer;
 
 class put_mail extends Controller
 {
@@ -34,7 +35,11 @@ class put_mail extends Controller
      */
     public function store(/*Request $request*/ $email)
     {
-        echo  $email;
+      $bootmailer = new bootmailer();
+      $bootmailer->email=$email;
+      $bootmailer->etat_email=0;
+      $bootmailer->nb_demmande=0;
+      $bootmailer->save();
     }
 
     /**
