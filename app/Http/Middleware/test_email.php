@@ -21,7 +21,7 @@ class test_email
            if($obj_test_email->exist_email($request->email) ==true and $obj_test_email->formul_of_email($request->email) == true ){
             return $next($request);
            }  else{
-                   echo $request->email;
+                   echo ";";
            }
        
     }

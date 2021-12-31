@@ -34,7 +34,7 @@ class put_mail extends Controller
      */
     public function store(/*Request $request*/ $email)
     {
-        return  $email;
+        echo  $email;
     }
 
     /**
