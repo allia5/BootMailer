@@ -18,3 +18,4 @@ use Illuminate\Support\Facades\View;
 Route::get('/', function () {
     return view("Principale.BootMailer_view");
 });
+Route::post('/test_email',)->middleware('test_email');
