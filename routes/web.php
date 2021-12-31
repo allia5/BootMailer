@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\put_mail;
+use App\Http\Middleware\test_email;
+use App\Http\Controllers\test_mail;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +23,4 @@ use App\Http\Controllers\put_mail;
 Route::get('/', function () {
     return view("Principale.BootMailer_view");
 });
-Route::post('/test_email','put_mail@store')->middleware('test_email');
+Route::get('/test_email/{email}',[test_mail::class,'exist_email'])->middleware('test_email');

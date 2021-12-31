@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class test_mail extends Controller
 {
@@ -11,9 +12,13 @@ class test_mail extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function formul_of_email($email)
     {
-        //
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -21,9 +26,14 @@ class test_mail extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function exist_email($email)
     {
-        //
+       $table=DB::table('bootmailer')->get()->where('email',$email);
+       if(isset($table)){
+         return true;
+       }else{
+          return false;
+       }
     }
 
     /**
@@ -32,10 +42,7 @@ class test_mail extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+
 
     /**
      * Display the specified resource.
@@ -43,10 +50,7 @@ class test_mail extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -54,10 +58,7 @@ class test_mail extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.
@@ -66,10 +67,7 @@ class test_mail extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+
 
     /**
      * Remove the specified resource from storage.
@@ -77,8 +75,4 @@ class test_mail extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
 }
