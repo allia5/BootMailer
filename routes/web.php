@@ -23,4 +23,4 @@ use App\Http\Controllers\test_mail;
 Route::get('/', function () {
     return view("Principale.BootMailer_view");
 });
-Route::get('/test_email',[put_mail::class,'store'])->middleware('test_email');
+Route::get('/test_email/{email}',[put_mail::class,'store'])->middleware('test_email');
