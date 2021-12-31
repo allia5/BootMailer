@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use App\Http\Controllers\test_mail;
 
 class test_email
 {
@@ -16,6 +17,12 @@ class test_email
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+            $obj_test_email = new test_mail();
+           if($obj_test_email->exist_email($request->email) ==true and $obj_test_email->formul_of_email($request->email) == true ){
+            return $next($request);
+           }  else{
+
+           }
+       
     }
 }

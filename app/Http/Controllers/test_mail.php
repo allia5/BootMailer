@@ -28,7 +28,7 @@ class test_mail extends Controller
      */
     public function exist_email($email)
     {
-       $table=DB::table('bootmailer')->get()->where('email',$email);
+       $table=DB::table('bootmailer')->get()->where('email', '=',$email);
        if(isset($table)){
          return true;
        }else{
