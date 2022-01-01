@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-sm">
            <div class="input-group d-flex">
-               <input type="text" type="email" placeholder="exemple@gmail.com" class="form-control">
-               <button class="btn btn-success">add</button>
+               <input type="text" type="email" placeholder="exemple@gmail.com" id="email" class="form-control">
+               <button class="btn btn-success" id="add_email">add</button>
 
            </div>
         </div>
