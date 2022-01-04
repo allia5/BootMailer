@@ -22,7 +22,7 @@ class test_email
                   
             return $next($request);
            }else{
-                  
+                  echo 0;
                   return 0;
            }
        

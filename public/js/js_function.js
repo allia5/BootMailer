@@ -3,8 +3,9 @@ $(document).ready(function() {
         var email = document.getElementById("email").value;
 
         $.ajax({
-            url: "{{url('/test_email')}}",
             type: 'POST',
+            url: "{ { url('/test_email') }} ",
+
             data: {
                 email: email
             },
