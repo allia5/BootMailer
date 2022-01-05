@@ -21,7 +21,8 @@ use App\Http\Controllers\test_mail;
 
 
 
-Route::post('/test_email',[put_mail::class,'store'])->name('hello.add');
+
 Route::get('/', function () {
     return view("Principale.BootMailer_view");
 });
+Route::post('/test_email',[put_mail::class,'store'])->middleware('test_email');

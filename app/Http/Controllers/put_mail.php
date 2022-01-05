@@ -35,13 +35,14 @@ class put_mail extends Controller
      */
     public function store(Request $request )
     {
-     /* $bootmailer = new bootmailer();
+     $bootmailer = new bootmailer();
       $bootmailer->email=$request->email;
       $bootmailer->etat_email=0;
       $bootmailer->nb_demmande=0;
       $bootmailer->save();
-      return response()->json(['success'=>'Data is successfully added']);*/
-      return view("Principale.BootMailer_view");
+      
+      return response()->json(['success'=>'Data is successfully added']);
+  
       
     }
 
