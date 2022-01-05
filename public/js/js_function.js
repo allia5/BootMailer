@@ -3,12 +3,11 @@ $(document).ready(function() {
         var email = document.getElementById("email").value;
 
         $.ajax({
-            type: 'POST',
-            url: "{ { url('/test_email') }} ",
 
-            data: {
-                email: email
-            },
+            url: "{{ Route('hello.add') }} ",
+            type: 'POST',
+
+
             success: function(data) {
                 alert(data);
             }

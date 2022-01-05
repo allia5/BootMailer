@@ -17,14 +17,15 @@ class test_email
      */
     public function handle(Request $request, Closure $next)
     {
-            $obj_test_email = new test_mail();
+           /* $obj_test_email = new test_mail();
            if($obj_test_email->exist_email($request->email) ==true and $obj_test_email->formul_of_email($request->email) == true ){
                   
-            return $next($request);
+            
            }else{
                   echo 0;
                   return 0;
-           }
+           }*/
+           return $next($request);
        
     }
 }
