@@ -46,13 +46,13 @@ class put_mail extends Controller
                 throw new \Exception('failed saved data');
             }
            */
-          return response()->json(['success'=>'Data is successfully added']);
+         
            
         }catch(\Exception $e){
             return response()->json(['error'=>'Something went wrong, please try later.']);
         }
        
-    
+        return response()->json(['success'=>'Data is successfully added']);
   
       
     }
