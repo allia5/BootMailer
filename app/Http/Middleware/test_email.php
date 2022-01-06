@@ -24,7 +24,7 @@ class test_email
               
            }else{
                   
-                  return 0;
+                  return 'dailed';
            }
            
        

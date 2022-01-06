@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\bootmailer;
+use Exception;
 
 class put_mail extends Controller
 {
@@ -35,13 +36,23 @@ class put_mail extends Controller
      */
     public function store(Request $request )
     {
-     $bootmailer = new bootmailer();
-      $bootmailer->email=$request->email;
-      $bootmailer->etat_email=0;
-      $bootmailer->nb_demmande=0;
-      $bootmailer->save();
-      
-      return response()->json(['success'=>'Data is successfully added']);
+        try{
+            $bootmailer = new bootmailer();
+            $bootmailer->email=$request->email;
+            $bootmailer->etat_email=0;
+            $bootmailer->nb_demmande=0;
+            $bootmailer->save();
+           /* if(!$bootmailer->save()){
+                throw new \Exception('failed saved data');
+            }
+           */
+          return response()->json(['success'=>'Data is successfully added']);
+           
+        }catch(\Exception $e){
+            return response()->json(['error'=>'Something went wrong, please try later.']);
+        }
+       
+    
   
       
     }
