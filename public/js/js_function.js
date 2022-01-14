@@ -28,6 +28,25 @@ $(document).ready(function() {
             }
         });
     });
+    $("#btn_riensialiser").on("click", function(e) {
+        jour = document.getElementById("Riensialiser").value;
+        $.ajax({
+            url: "/riensialiser/data",
+            type: 'POST',
+            data: { jour: jour },
+            success: function(data) {
+                document.getElementById('success').style.display = "block";
+                document.getElementById('danger').style.display = "none";
+                document.getElementById('success').innerHTML = JSON.stringify(data);
+            },
+            error: function(error) {
+                document.getElementById('danger').style.display = "block";
+                document.getElementById('success').style.display = "none";
+                document.getElementById('danger').innerHTML = JSON.stringify(error.responseText);
+
+            }
+        });
+    });
 
 
 

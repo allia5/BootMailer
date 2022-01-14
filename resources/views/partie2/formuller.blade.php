@@ -9,8 +9,8 @@
         </div>
         <div class="col">
 <div class="input-group d-flex">
-    <input  type="number" class="form-control" placeholder="number de jour">
-    <button class="btn btn-info">reinstialiser</button>
+    <input id="Riensialiser"  type="number" class="form-control" placeholder="number de jour">
+    <button class="btn btn-info" id="btn_riensialiser">reinstialiser</button>
 </div>
         </div>
     </div>
