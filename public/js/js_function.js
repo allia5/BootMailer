@@ -29,15 +29,22 @@ $(document).ready(function() {
         });
     });
     $("#btn_riensialiser").on("click", function(e) {
+        event.preventDefault();
         jour = document.getElementById("Riensialiser").value;
+        alert(jour);
         $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
             url: "/riensialiser/data",
             type: 'POST',
             data: { jour: jour },
             success: function(data) {
+
                 document.getElementById('success').style.display = "block";
                 document.getElementById('danger').style.display = "none";
                 document.getElementById('success').innerHTML = JSON.stringify(data);
+
             },
             error: function(error) {
                 document.getElementById('danger').style.display = "block";
