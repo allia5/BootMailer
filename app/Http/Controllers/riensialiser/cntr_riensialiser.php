@@ -10,11 +10,14 @@ use App\Models\bootmailer;
 class cntr_riensialiser extends Controller
 {
     public function function_principale(Request $req){
-       $nbr_jour=$req->jour;
+       $nbr_jour_entrer=$req->jour;
+       $object = new cntr_riensialiser();
+     $count= $object->Get_Data_Update($nbr_jour_entrer);
+       return response()->json(['success'=>$count.' data updated succesfely']);
 
     }
     public function Get_Data(){
-        $table=DB::table('bootmailer')->get()->where('etat','=',1);
+        $table=DB::table('bootmailer')->get()->where('etat_email','=',1);
         $table = json_decode($table);
         return $table;
 
@@ -25,9 +28,18 @@ class cntr_riensialiser extends Controller
      return strtotime($date);
 
     }
-    public function update_data($table_id){
-        
-
+    public function Get_Data_Update($nbr_jour){
+        $obj=new cntr_riensialiser();
+         $all_data = $obj->Get_Data();
+         $count=0;
+     foreach($all_data as $array){
+         $nbr_jour_inst= $obj->calcule_jour($array['update_at']);
+         if($nbr_jour_inst>=$nbr_jour){
+              DB::table('bootmailer')->get()->where('id','=',$array['id'])->update(['etat_email' =>1]);
+              $count++;
+         }
+     }
+     return $count;
     }
 
 }
