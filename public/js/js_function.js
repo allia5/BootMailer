@@ -31,7 +31,7 @@ $(document).ready(function() {
     $("#btn_riensialiser").on("click", function(e) {
         event.preventDefault();
         jour = document.getElementById("Riensialiser").value;
-        alert(jour);
+
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
