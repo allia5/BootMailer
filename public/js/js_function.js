@@ -56,22 +56,25 @@ $(document).ready(function() {
     });
 
     function get_statistique() {
+
         $.ajax({
+
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             url: '/get_stat_of_data',
-            type: 'POST',
+            type: 'GET',
 
             success: function(data) {
+                alert(data);
                 document.getElementById('card1').innerHTML = data[1];
                 document.getElementById('card2').innerHTML = data[2];
                 document.getElementById('card3').innerHTML = data[3];
             }
         });
     }
-    get_statistique();
 
+    get_statistique();
 
 
 });
