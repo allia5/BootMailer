@@ -55,6 +55,23 @@ $(document).ready(function() {
         });
     });
 
+    function get_statistique() {
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: '/get_stat_of_data',
+            type: 'POST',
+
+            success: function(data) {
+
+            },
+            error: function(error) {
+
+            }
+        });
+    }
+
 
 
 });
