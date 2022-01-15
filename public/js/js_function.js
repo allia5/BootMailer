@@ -64,13 +64,13 @@ $(document).ready(function() {
             type: 'POST',
 
             success: function(data) {
-
-            },
-            error: function(error) {
-
+                document.getElementById('card1').innerHTML = data[1];
+                document.getElementById('card2').innerHTML = data[2];
+                document.getElementById('card3').innerHTML = data[3];
             }
         });
     }
+    get_statistique();
 
 
 

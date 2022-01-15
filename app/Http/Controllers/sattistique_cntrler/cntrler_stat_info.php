@@ -37,6 +37,6 @@ class cntrler_stat_info extends Controller
         $table[1]=$obj->get_count_all_email_none_env();
         $table[2]=$obj-> get_count_all_email_env();
         $table[3]=$obj->Get_All_Email_env_ce_jour();
-
+    return $table;
     }
 }
