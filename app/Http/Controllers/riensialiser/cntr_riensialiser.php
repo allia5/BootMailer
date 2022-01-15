@@ -19,7 +19,7 @@ class cntr_riensialiser extends Controller
     }
     public function Get_Data()
     {
-        $table = DB::table('bootmailer')->get()->where('etat_email', '=', 0);
+        $table = DB::table('bootmailer')->get()->where('etat_email', '=', 1);
         $table = json_decode($table);
         return $table;
     }
@@ -37,17 +37,19 @@ class cntr_riensialiser extends Controller
 
 
         $count = 0;
+        $date_now=date("Y-m-d H:i:s");
+       
         foreach ($all_data as $array) {
             $nbr_jour_inst = ($obj->calcule_jour($array->updated_at));
-
-            $date_now=date("Y-m-d H:i:s");
-
+            $nbr_jour_now =($obj->calcule_jour($date_now))/(86400);
             $nbr_jour_inst = $nbr_jour_inst / (86400);
-           $nbr_jour_inst=$nbr_jour_inst-$date_now;
+           $nbr_jour_inst= $nbr_jour_now -$nbr_jour_inst;
+          
             if ($nbr_jour_inst >= $nbr_jour) {
                 $bootmailer=bootmailer::find($array->id);
-                $bootmailer->where('id',$array->id)->update(array('etat_email' => 1));
+                $bootmailer->where('id',$array->id)->update(array('etat_email' => 0));
                 $count++;
+                
             }
         }
         return $count;
